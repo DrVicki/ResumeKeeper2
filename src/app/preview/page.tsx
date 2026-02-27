@@ -4,8 +4,8 @@ import { useResumeData } from "@/hooks/use-resume-data";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Separator } from "@/components/ui/separator";
-import { Mail, Phone, MapPin, Globe, Github, Linkedin, ExternalLink, Download, Share2 } from "lucide-react";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Mail, Phone, MapPin, Globe, Github, Linkedin, ExternalLink, Download, Share2, User } from "lucide-react";
 
 export default function PreviewPage() {
   const { data } = useResumeData();
@@ -42,32 +42,45 @@ export default function PreviewPage() {
       </div>
 
       <Card className="border-none shadow-xl bg-white overflow-hidden print:shadow-none print:border-none">
-        <div className="bg-primary px-8 py-12 text-primary-foreground text-center md:text-left print:bg-primary print:text-white">
-          <h2 className="text-4xl font-bold font-headline mb-2">{basics.fullName || "Your Name"}</h2>
-          <p className="text-xl text-primary-foreground/90 font-medium mb-6">{basics.jobTitle || "Your Professional Title"}</p>
-          
-          <div className="flex flex-wrap justify-center md:justify-start gap-4 text-sm opacity-90">
-            {basics.email && (
-              <span className="flex items-center gap-1">
-                <Mail className="h-4 w-4" /> {basics.email}
-              </span>
+        <div className="bg-primary px-8 py-12 text-primary-foreground print:bg-primary print:text-white">
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
+            {basics.profilePicture && (
+              <Avatar className="h-32 w-32 border-4 border-white/20 shadow-lg">
+                <AvatarImage src={basics.profilePicture} alt={basics.fullName} className="object-cover" />
+                <AvatarFallback className="bg-primary-foreground text-primary text-4xl">
+                  {basics.fullName ? basics.fullName.charAt(0) : <User />}
+                </AvatarFallback>
+              </Avatar>
             )}
-            {basics.phone && (
-              <span className="flex items-center gap-1">
-                <Phone className="h-4 w-4" /> {basics.phone}
-              </span>
-            )}
-            {basics.location && (
-              <span className="flex items-center gap-1">
-                <MapPin className="h-4 w-4" /> {basics.location}
-              </span>
-            )}
-          </div>
-          
-          <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-4 no-print">
-            {basics.website && <a href={basics.website} target="_blank" className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors"><Globe className="h-4 w-4" /></a>}
-            {basics.github && <a href={basics.github} target="_blank" className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors"><Github className="h-4 w-4" /></a>}
-            {basics.linkedin && <a href={basics.linkedin} target="_blank" className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors"><Linkedin className="h-4 w-4" /></a>}
+            
+            <div className="text-center md:text-left space-y-2 flex-1">
+              <h2 className="text-4xl font-bold font-headline">{basics.fullName || "Your Name"}</h2>
+              <p className="text-xl text-primary-foreground/90 font-medium mb-4">{basics.jobTitle || "Your Professional Title"}</p>
+              
+              <div className="flex flex-wrap justify-center md:justify-start gap-4 text-sm opacity-90 pt-2">
+                {basics.email && (
+                  <span className="flex items-center gap-1">
+                    <Mail className="h-4 w-4" /> {basics.email}
+                  </span>
+                )}
+                {basics.phone && (
+                  <span className="flex items-center gap-1">
+                    <Phone className="h-4 w-4" /> {basics.phone}
+                  </span>
+                )}
+                {basics.location && (
+                  <span className="flex items-center gap-1">
+                    <MapPin className="h-4 w-4" /> {basics.location}
+                  </span>
+                )}
+              </div>
+              
+              <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-4 no-print">
+                {basics.website && <a href={basics.website} target="_blank" className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors"><Globe className="h-4 w-4" /></a>}
+                {basics.github && <a href={basics.github} target="_blank" className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors"><Github className="h-4 w-4" /></a>}
+                {basics.linkedin && <a href={basics.linkedin} target="_blank" className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors"><Linkedin className="h-4 w-4" /></a>}
+              </div>
+            </div>
           </div>
         </div>
 
@@ -75,8 +88,8 @@ export default function PreviewPage() {
           {/* About Section */}
           <section>
             <h3 className="text-xl font-bold font-headline text-primary border-l-4 border-accent pl-4 mb-4 uppercase tracking-wider">About Me</h3>
-            <p className="text-lg font-medium text-foreground mb-4 italic">{about.shortBio}</p>
-            <p className="text-muted-foreground leading-relaxed">{about.paragraph}</p>
+            {about.shortBio && <p className="text-lg font-medium text-foreground mb-4 italic">{about.shortBio}</p>}
+            <p className="text-muted-foreground leading-relaxed">{about.paragraph || "Tell us about yourself in the profile section..."}</p>
           </section>
 
           {/* Work Experience */}

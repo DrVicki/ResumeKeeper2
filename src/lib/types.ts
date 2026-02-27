@@ -7,6 +7,7 @@ export interface ResumeBasics {
   github: string;
   linkedin: string;
   jobTitle: string;
+  profilePicture?: string;
 }
 
 export interface ResumeAbout {

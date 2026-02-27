@@ -17,6 +17,7 @@ const basicsSchema = z.object({
   website: z.string().url("Invalid URL").optional().or(z.literal("")),
   github: z.string().url("Invalid URL").optional().or(z.literal("")),
   linkedin: z.string().url("Invalid URL").optional().or(z.literal("")),
+  profilePicture: z.string().url("Invalid URL").optional().or(z.literal("")),
 });
 
 interface Props {
@@ -52,6 +53,17 @@ export function BasicsForm({ initialData, onSave }: Props) {
               <FormItem>
                 <FormLabel>Professional Title</FormLabel>
                 <FormControl><Input placeholder="Senior Software Engineer" {...field} /></FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="profilePicture"
+            render={({ field }) => (
+              <FormItem className="md:col-span-2">
+                <FormLabel>Profile Picture URL</FormLabel>
+                <FormControl><Input placeholder="https://example.com/photo.jpg" {...field} /></FormControl>
                 <FormMessage />
               </FormItem>
             )}

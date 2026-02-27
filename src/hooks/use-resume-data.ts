@@ -15,6 +15,7 @@ const DEFAULT_DATA: ResumeData = {
     github: '',
     linkedin: '',
     jobTitle: '',
+    profilePicture: 'https://i.postimg.cc/2SrXwb6b/imageedit-8-4452131128.png',
   },
   about: {
     paragraph: '',
@@ -32,7 +33,12 @@ export function useResumeData() {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (stored) {
       try {
-        setData(JSON.parse(stored));
+        const parsed = JSON.parse(stored);
+        // Ensure profilePicture exists if it was saved before the change
+        if (!parsed.basics.profilePicture) {
+          parsed.basics.profilePicture = DEFAULT_DATA.basics.profilePicture;
+        }
+        setData(parsed);
       } catch (e) {
         setData(DEFAULT_DATA);
       }
