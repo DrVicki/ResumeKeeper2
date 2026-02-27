@@ -1,28 +1,28 @@
 # Dr. Vicki's ResumeKeeper
 
-🚀 ResumeKeeper
+## 🚀 ResumeKeeper
 
 ResumeKeeper is an AI-powered resume and portfolio management system designed to help professionals create, update, and maintain a dynamic, modern resume with ease.
 
 Built for career changers, students, and lifelong learners, ResumeKeeper transforms resume building from a static document process into an intelligent, guided experience.
 
-🌟 Project Overview
+### 🌟 Project Overview
 
 ResumeKeeper acts as a smart career companion. Instead of simply filling in text fields, users are guided through structured prompts that:
 
-Generate compelling professional summaries
+- Generate compelling professional summaries
 
-Create impactful job descriptions (with measurable results)
+- Create impactful job descriptions (with measurable results)
 
-Refine skills for ATS optimization
+- Refine skills for ATS optimization
 
-Organize education and certifications
+- Organize education and certifications
 
-Add and manage project links or uploads
+- Add and manage project links or uploads
 
-Continuously update content as experience grows
+- Continuously update content as experience grows
 
-The goal: Turn career history into a living, optimized professional brand.
+**The goal: Turn career history into a living, optimized professional brand.**
 
 🧠 Key Features
 
