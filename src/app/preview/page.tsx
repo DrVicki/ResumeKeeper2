@@ -145,7 +145,7 @@ export default function PreviewPage() {
         </CardContent>
         
         <div className="bg-muted/30 p-8 text-center text-xs text-muted-foreground border-t">
-          <p>© {new Date().getFullYear()} {basics.fullName || "ResumeKeeper User"}. Created with ResumeKeeper.</p>
+          <p>© {new Date().getFullYear()} {basics.fullName || "User"}. Created with Dr. Vicki's ResumeKeeper.</p>
         </div>
       </Card>
     </div>

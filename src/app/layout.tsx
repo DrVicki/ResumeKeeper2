@@ -4,7 +4,7 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'ResumeKeeper - Your Professional Portfolio',
+  title: "Dr. Vicki's ResumeKeeper - Your Professional Portfolio",
   description: 'Create and maintain your online resume/portfolio with ease.',
 };
 

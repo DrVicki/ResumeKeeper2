@@ -19,7 +19,7 @@ export function Navbar() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-2 font-headline text-xl font-bold text-primary">
           <Layout className="h-6 w-6" />
-          <span>ResumeKeeper</span>
+          <span>Dr. Vicki's ResumeKeeper</span>
         </Link>
         <div className="flex gap-4">
           {navItems.map((item) => (
